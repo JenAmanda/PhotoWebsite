@@ -81,6 +81,8 @@ body {
     max-width: 100vw;
     margin: 0;
     min-width:600px;
+    /* min-width: 1200px; */
+    overflow-x: auto;
   }
 /* This is for the image popup gallery */
   .column {
@@ -151,6 +153,9 @@ body {
   .column2::after{
     /* float: left; */
     /* width: ; */
+    overflow: hidden;
+    /* text-overflow: ellipsis; */
+    text-overflow: clip;
     overflow-wrap: break-word;
     /* padding-left: 10px; */
   }
@@ -170,20 +175,29 @@ body {
 
 
   #homepageQuote{
-  position: absolute;
-  top: 20%;
-  left: 35%;
-  text-align: left;
-  transform: translate(-50%, -50%);
+  opacity: 0.75;
+  background-color: white;
+  color: rgb(0, 0, 0);
+  font-size: 10vw; /* Responsive font size */
+  font-weight: bold;
+  margin: 0 auto; /* Center the text container */
+  padding: 10px;
+  width: 50%;
+  text-align: center; /* Center text */
+  position: absolute; /* Position text */
+  top: 50%; 
+  left: 50%; 
+  transform: translate(-50%, -50%); /* Position text in the middle */
+  mix-blend-mode: screen; /* This makes the cutout text possible */
   }
 
-  @media screen and (max-width: 1000px) {
+  /* @media screen and (max-width: 1000px) {
     .column3 {
       
       flex: 50%;
       max-width: 50%;
     }
-  }
+  } */
   
   /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
   @media screen and (max-width: 600px) {
@@ -208,7 +222,87 @@ body {
   }
   
   .column3 img {
+    cursor: pointer;
     margin-top: 8px;
     vertical-align: middle;
     width: 100%;
+  }
+
+  .collapsible {
+    background-color: #ffffff;
+    color: #8f97b7;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+  }
+  
+  /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+  .active, .collapsible:hover {
+    background-color: #95bcf763;
+  }
+  
+  /* Style the collapsible content. Note: hidden by default */
+  .content2 {
+    padding: 0 18px;
+    display: none;
+    /* overflow: hidden; */
+    /* background-color: #f1f1f1; */
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial;
+    padding: 20px;
+    background: #f1f1f1;
+  }
+  
+  /* Header/Blog Title */
+  .header {
+    padding: 30px;
+    font-size: 40px;
+    text-align: center;
+    background: white;
+  }
+  
+  /* Create two unequal columns that floats next to each other */
+  /* Left column */
+  .leftcolumn {
+    float: left;
+    width: 25%;
+    padding-right: 20px;
+  }
+  
+  /* Right column */
+  .rightcolumn {
+    float: left;
+    width: 75%;
+
+  }
+  
+  /* Fake image */
+  .fakeimg {
+    background-color: #aaa;
+    width: 100%;
+    padding: 20px;
+  }
+  
+  /* Add a card effect for articles */
+  .card {
+    background-color: white;
+    padding: 20px;
+    margin-top: 20px;
+  }
+  
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
   }
